@@ -1,0 +1,29 @@
+---
+- name: download nginx source
+  get_url: url=http://nginx.org/download/nginx-{{ nginx_version }}.tar.gz
+           dest=/tmp/nginx-{{ nginx_version }}.tar.gz
+
+- name: download lua nginx module
+  get_url: url=https://github.com/chaoslawful/lua-nginx-module/archive/v{{ lua_nginx_version }}.tar.gz
+           dest=/tmp/lua-nginx-module-{{ lua_nginx_version }}.tar.gz
+
+- name: extract nginx source
+  command: tar zxvf nginx-{{ nginx_version }}.tar.gz chdir=/tmp
+
+- name: rename nginx directory
+  command: mv nginx-{{ nginx_version }} nginx chdir=/tmp
+
+- name: extract lua nginx module source
+  command: tar zxvf lua-nginx-module-{{ lua_nginx_version }}.tar.gz chdir=/tmp
+
+- name: rename lua nginx module directory
+  command: mv lua-nginx-module-{{ lua_nginx_version }} lua-nginx-module chdir=/tmp
+
+- name: copy build script
+  copy: src=build-nginx.sh dest=/tmp/nginx/build-nginx.sh mode=0755
+
+- name: build nginx
+  script: /tmp/nginx/build-nginx.sh
+
+- name: copy geoip data file
+  copy: src=GeoIP.dat dest=/usr/local/webserver/nginx/conf/GeoIP.dat

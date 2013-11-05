@@ -1,9 +1,12 @@
 ---
 packages:
-  - libselinux-python
-  - openssl-devel
-  - pcre-devel
-  - lua-devel
+  - libselinux-python # authorized_key require
+  - openssl-devel     # nginx require
+  - pcre-devel        # nginx require
+  - geoip             # nginx require
+  - geoip-devel       # nginx require
+  - lua-devel         # nginx require
   - gcc
   - make
+  - git
   - vim-enhanced

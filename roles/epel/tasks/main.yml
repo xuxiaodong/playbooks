@@ -4,4 +4,4 @@
            dest=/tmp/epel-release-6-8.noarch.rpm
 
 - name: install epel rpm
-  raw: rpm -Uvh /tmp/epel-release-6-8.noarch.rpm
+  command: rpm -Uvh /tmp/epel-release-6-8.noarch.rpm
