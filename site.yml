@@ -1,0 +1,6 @@
+---
+- name: bootstrap server
+  hosts: bootstrap
+  user: root
+
+  roles:
