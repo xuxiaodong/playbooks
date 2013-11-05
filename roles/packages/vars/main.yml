@@ -1,3 +1,9 @@
 ---
 packages:
   - libselinux-python
+  - openssl-devel
+  - pcre-devel
+  - lua-devel
+  - gcc
+  - make
+  - vim-enhanced
