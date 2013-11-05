@@ -26,4 +26,11 @@
   script: /tmp/nginx/build-nginx.sh
 
 - name: copy geoip data file
-  copy: src=GeoIP.dat dest=/usr/local/webserver/nginx/conf/GeoIP.dat
+  copy: src=GeoIP.dat dest={{ nginx_conf_path }}/GeoIP.dat
+
+- name: deploy nginx conf
+  template: src=nginx.conf.j2 dest={{ nginx_conf_path }}/nginx.conf
+
+- name: deploy nginx vhosts
+  template: src={{ item }}.conf.j2 dest={{ nginx_conf_path }}/vhost.d/{{ item }}.conf
+  with_items: nginx_confs
