@@ -23,7 +23,7 @@
   copy: src=build-nginx.sh dest=/tmp/nginx/build-nginx.sh mode=0755
 
 - name: build nginx
-  script: /tmp/nginx/build-nginx.sh
+  shell: build-nginx.sh chdir=/tmp/nginx
 
 - name: copy geoip data file
   copy: src=GeoIP.dat dest={{ nginx_conf_path }}/GeoIP.dat
