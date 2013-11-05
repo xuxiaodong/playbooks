@@ -1,0 +1,13 @@
+---
+users:
+  - xiaodong.xu
+  - zelin.wu
+  - tong.li
+  - nianhua.wei
+  - bo.li
+  - wenlong.ye
+  - xingxing.li
+
+# created with:
+# python -c 'import crypt; print crypt.crypt("This is my Password", "$1$SomeSalt$")'
+password: AgucQ.HF2GKYQ

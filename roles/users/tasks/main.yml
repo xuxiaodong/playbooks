@@ -1,0 +1,11 @@
+---
+- name: create users
+  user: name={{ item }} 
+        password={{ password }} 
+        group=wheel 
+        shell=/bin/bash
+  with_items: users
+
+- name: add authorized keys
+  authorized_key: user=xiaodong.xu
+                  key="ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA1u/s1R3zGuK1p1xoVwVqd0IjYTYLTIITCL5a/b2tfPunwUKNlKqq9wzdPhHMlGer6yRQvavPTnnoTQZruAB/a4ZHqi2uH9GJRk7IkPHPaKFnNZz9F2mUiG06kecOAqwiZs2+LRNR9qRBIC7BK3K7YUlJ3trVlcwpZGxKTfMcOdGGvFrR90BSLklihTMsUWJmkfNjYar4jW0LBm4Ng9dxm3VS8GZHJtF7TFJmLFhF5gjUdn9gszvsDevwy7B5LGE+lDXdMl0VRQ8/KM6jD4FxtvL/qwaMNH/8LaVjdtV+Hb7qqpIIrrF9f6oXvNjVlm1X8B2GE7uPPfi4jYGv8G2R5Q== for mt host"
