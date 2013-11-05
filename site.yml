@@ -4,3 +4,6 @@
   user: root
 
   roles:
+  - epel
+  - packages
+  - users

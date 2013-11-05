@@ -1,0 +1,7 @@
+---
+- name: download epel rpm
+  get_url: url=http://dl.fedoraproject.org/pub/epel/6/{{ ansible_architecture }}/epel-release-6-8.noarch.rpm
+           dest=/tmp/epel-release-6-8.noarch.rpm
+
+- name: install epel rpm
+  raw: rpm -Uvh /tmp/epel-release-6-8.noarch.rpm
