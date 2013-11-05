@@ -6,5 +6,6 @@
   roles:
   - epel
   - packages
+  - sudo
   - users
   - nginx

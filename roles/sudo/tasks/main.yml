@@ -1,0 +1,3 @@
+---
+- name: deploy sudo config
+  copy: src=sudoers dest=/etc/sudoers validate='visudo -cf %s'
