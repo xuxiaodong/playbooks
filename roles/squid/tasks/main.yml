@@ -7,7 +7,7 @@
   command: tar zxvf squid-{{ squid_version }}.lekan-modified.tar.gz chdir=/tmp
 
 - name: rename squid directory
-  command: mv squid-{{ squid_version }}.lekan-modified chdir=/tmp
+  command: mv squid-{{ squid_version }}.lekan-modified squid chdir=/tmp
 
 - name: copy build script
   copy: src=build-squid.sh dest=/tmp/squid/build-squid.sh mode=0755
