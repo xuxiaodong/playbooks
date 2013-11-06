@@ -9,5 +9,10 @@ packages:
   - gcc
   - make
   - git
+  - ntp
   - vim-enhanced
   - tmux
+  - tree
+
+services:
+  - ntpd

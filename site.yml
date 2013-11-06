@@ -4,11 +4,12 @@
   user: root
 
   roles:
-  - epel
-  - packages
-  - sudo
-  - ssh
-  - limits
-  - users
-  - nginx
-  - squid
+    - epel
+    - packages
+    - sudo
+    - ssh
+    - limits
+    - selinux
+    - users
+    - nginx
+    - squid
