@@ -10,3 +10,4 @@ packages:
   - make
   - git
   - vim-enhanced
+  - tmux
