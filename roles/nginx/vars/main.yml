@@ -7,3 +7,6 @@ nginx_confs:
   - vod8080
   - cache9000
   - cache9090
+upstream_ip:
+  - ip1
+  - ip2

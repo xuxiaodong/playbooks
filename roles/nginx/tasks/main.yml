@@ -28,8 +28,10 @@
 - name: copy geoip data file
   copy: src=GeoIP.dat dest={{ nginx_conf_path }}/GeoIP.dat
 
-- name: deploy nginx conf
+- name: deploy nginx config
   template: src=nginx.conf.j2 dest={{ nginx_conf_path }}/nginx.conf
+  tags:
+    - nginx_config
 
 - name: create vhost.d directory
   file: path={{ nginx_conf_path }}/vhost.d state=directory
@@ -37,3 +39,5 @@
 - name: deploy nginx vhosts
   template: src={{ item }}.conf.j2 dest={{ nginx_conf_path }}/vhost.d/{{ item }}.conf
   with_items: nginx_confs
+  tags:
+    - nginx_vhost

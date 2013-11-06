@@ -17,3 +17,5 @@
 
 - name: deploy squid config
   template: src=squid.conf.j2 dest={{ squid_conf_path }}/squid.conf
+  tags:
+    - squid_config

@@ -3,3 +3,7 @@ squid_version: 2.7
 squid_conf_path: /usr/local/webserver/squid/etc
 squid_passwd: 
 squid_cache_peer_ip: 
+squid_cache_dir:
+  - sdb1
+  - sdc1
+  - sdd1
