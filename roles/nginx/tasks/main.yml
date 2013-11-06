@@ -23,13 +23,16 @@
   copy: src=build-nginx.sh dest=/tmp/nginx/build-nginx.sh mode=0755
 
 - name: build nginx
-  shell: build-nginx.sh chdir=/tmp/nginx
+  command: ./build-nginx.sh chdir=/tmp/nginx
 
 - name: copy geoip data file
   copy: src=GeoIP.dat dest={{ nginx_conf_path }}/GeoIP.dat
 
 - name: deploy nginx conf
   template: src=nginx.conf.j2 dest={{ nginx_conf_path }}/nginx.conf
+
+- name: create vhost.d directory
+  file: path={{ nginx_conf_path }}/vhost.d state=directory
 
 - name: deploy nginx vhosts
   template: src={{ item }}.conf.j2 dest={{ nginx_conf_path }}/vhost.d/{{ item }}.conf

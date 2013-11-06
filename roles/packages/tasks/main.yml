@@ -1,4 +1,7 @@
 ---
+- name: clean yum cache
+  shell: yum clean metadata; yum clean dbcache
+
 - name: install packages
   yum: name={{ item }} state=latest
   with_items: packages
