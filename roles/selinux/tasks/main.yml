@@ -1,3 +1,6 @@
 ---
 - name: disable selinux
   command: /usr/sbin/setenforce 0
+
+- name: copy selinux config
+  copy: src=selinux dest=/etc/selinux/config mode=0644
