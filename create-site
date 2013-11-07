@@ -30,7 +30,7 @@ if ( $name && $hosts && $user && @roles ) {
     push @$array, $hash;
 }
 else {
-    die "Usage: $0 -n <name> -h <hosts> -u <user> -r <roles>\n";
+    die "Usage: $0 -n <name> -h <hosts> -u <user> -r <role,role,role...>\n";
 }
 
 YAML::DumpFile( 'temp.yml', $array );

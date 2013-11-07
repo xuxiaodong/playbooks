@@ -1,0 +1,28 @@
+---
+- name: install ganglia-gmetad
+  yum: name=ganglia-gmetad state=present
+  tags:
+    - ganglia_gmetad
+
+- name: install ganglia-gmond
+  yum: name=ganglia-gmond state=present
+  tags:
+    - ganglia_gmond
+
+- name: test gmond config file
+  command: test -f /etc/ganglia/gmond.conf
+  register: result
+  ignore_errors: True
+  tags:
+    - test_gmond
+
+- name: deploy gmond config
+  template: src=gmond.conf.j2 dest=/etc/ganglia/gmond.conf mode=0644
+  when: result|success
+  tags:
+    - gmond_config
+
+- name: install ganglia-web
+  yum: name=ganglia-web state=present
+  tags:
+    - ganglia_web
