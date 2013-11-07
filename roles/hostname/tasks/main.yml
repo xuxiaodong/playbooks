@@ -1,0 +1,10 @@
+---
+- name: setup hostname
+  command: hostname {{ host_name }}
+
+- name: change hosts file
+  lineinfile: dest=/etc/hosts regexp='^127\.0\.0\.1' line='127.0.0.1 {{ host_name }}'
+
+- name: change network file
+  lineinfile: dest=/etc/sysconfig/network regexp='^HOSTNAME' line='HOSTNAME={{ host_name }}'
+  notify: restart network
