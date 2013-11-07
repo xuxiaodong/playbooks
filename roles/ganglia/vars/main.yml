@@ -1,2 +1,5 @@
 ---
 cluster_name: dongguan
+data_source:
+  - { name: 'dongguan', ip: ['123.123.123.123', '124.124.124.124'] }
+  - { name: 'qingdao', ip: ['123.123.123.123', '124.124.124.124'] }
