@@ -13,6 +13,10 @@ packages:
   - vim-enhanced
   - tmux
   - tree
+  - htop
+  - iftop
+  - iotop
+  - sysstat
 
 services:
   - ntpd

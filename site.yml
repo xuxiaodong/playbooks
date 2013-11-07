@@ -2,6 +2,7 @@
 - name: bootstrap server
   hosts: bootstrap
   user: root
+  gather_facts: True
 
   roles:
     - epel
@@ -13,3 +14,4 @@
     - users
     - nginx
     - squid
+    - ansible
