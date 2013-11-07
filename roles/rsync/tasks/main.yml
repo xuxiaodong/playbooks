@@ -1,0 +1,10 @@
+---
+- name: install rsync
+  yum: name=rsync state=present
+  tags:
+    - rsync
+
+- name: deploy rsync config
+  template: src=rsyncd.conf.j2 dest=/etc/rsyncd.conf mode=0644
+  tags:
+    - rsync_config
