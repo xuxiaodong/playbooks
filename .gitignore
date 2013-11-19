@@ -1,4 +1,5 @@
 roles/nginx/templates/*
 roles/squid/templates/*
 roles/resin/templates/*
+group_vars/*
 temp.yml
