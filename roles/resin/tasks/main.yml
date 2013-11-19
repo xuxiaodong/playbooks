@@ -1,0 +1,10 @@
+---
+- name: create conf directory
+  file: path={{ resin_path }}/conf state=directory
+
+- name: deploy resin config
+  template: src={{ item }} dest={{ resin_path }}/conf/
+  with_fileglob:
+    - ../templates/*
+  tags:
+    - resin_conf
