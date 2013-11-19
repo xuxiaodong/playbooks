@@ -1,0 +1,9 @@
+---
+- name: install perl module and curl on centos
+  yum: name={{ item }} state=present
+  with_items:
+    - perl-ExtUtils-MakeMaker
+    - curl
+
+- name: install cpanm
+  shell: curl -L http://cpanmin.us | perl - App::cpanminus
