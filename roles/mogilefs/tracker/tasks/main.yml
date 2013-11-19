@@ -1,0 +1,21 @@
+---
+- name: install mogilefs
+  command: cpanm MogileFS::Server MogileFS::Client MogileFS::Utils MogileFS::Network
+
+- name: create mysql database
+  mysql_db: name=mogilefs state=present
+
+- name: create mysql user
+  mysql_user: name=mogile password=mogile priv=mogilefs.*:ALL
+
+- name: database configuration
+  command: mogdbsetup --dbname=mogilefs --dbuser=mogile --dbpassword=mogile --yes
+
+- name: create mogilefs directory
+  file: path={{ conf_path }} state=directory
+
+- name: deploy config
+  template: src=mogilefsd.conf dest={{ conf_path }}/mogilefsd.conf
+
+- name: start tracker
+  command: su mogilefs -c 'mogilefsd -c {{ conf_path }}/mogilefsd.conf --daemon'

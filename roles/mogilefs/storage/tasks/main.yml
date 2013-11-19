@@ -1,0 +1,27 @@
+---
+- name: install mogilefs
+  command: cpanm MogileFS::Server MogileFS::Client MogileFS::Utils
+
+- name: create mogilefs directory
+  file: path={{ item }} state=directory
+  with_items:
+    - "{{ conf_path }}"
+    - "{{ dev_path }}"
+
+- name: deploy config
+  template: src=mogstored.conf dest={{ conf_path }}/mogstored.conf
+
+- name: add host
+  command: mogadm --trackers={{ trackers }}:7001 host add {{ storage_name }} --ip={{ ansible_eth1.ipv4.address }} --port=7500 --status=alive
+
+- name: add device
+  command: mogadm --trackers={{ trackers }}:7001 device add {{ storage_name }} 1
+
+- name: create domain
+  command: mogadm --trackers={{ trackers }}:7001 domain add {{ domain_name }}
+
+- name: create class
+  command: mogadm --trackers={{ trackers }}:7001 class add {{ domain_name }} {{ class_name }}
+
+- name: start storage
+  command: mogstored --daemon

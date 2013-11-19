@@ -1,0 +1,7 @@
+---
+trackers: 192.168.56.102
+conf_path: /etc/mogilefs
+dev_path: /var/mogdata/dev1
+storage_name: mogilestorage
+domain_name: testdomain
+class_name: testclass
