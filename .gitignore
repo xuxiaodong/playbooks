@@ -1,3 +1,4 @@
 roles/nginx/templates/*
 roles/squid/templates/*
+roles/resin/templates/*
 temp.yml

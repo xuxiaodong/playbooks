@@ -1,12 +1,4 @@
 ---
-nginx_version: 1.4.3
-lua_nginx_version: 0.9.1
-nginx_conf_path: /usr/local/webserver/nginx/conf
-nginx_confs:
-  - vod80
-  - vod8080
-  - cache9000
-  - cache9090
-upstream_ip:
-  - ip1
-  - ip2
+ngx_ver: 1.4.3
+lua_ngx_ver: 0.9.1
+ngx_conf_path: /usr/local/webserver/nginx/conf
