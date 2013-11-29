@@ -7,6 +7,10 @@
   get_url: url=https://github.com/chaoslawful/lua-nginx-module/archive/v{{ lua_ngx_ver }}.tar.gz
            dest=/tmp/lua-nginx-module-{{ lua_ngx_ver }}.tar.gz
 
+- name: download cache purge module
+  get_url: url=https://github.com/FRiCKLE/ngx_cache_purge/archive/{{ cache_purge_ver }}.tar.gz
+           dest=/tmp/cache-purge-{{ cache_purge_ver }}.tar.gz
+
 - name: extract nginx source
   command: tar zxvf nginx-{{ ngx_ver }}.tar.gz chdir=/tmp
 
@@ -18,6 +22,12 @@
 
 - name: rename lua nginx module directory
   command: mv lua-nginx-module-{{ lua_ngx_ver }} lua-nginx-module chdir=/tmp
+
+- name: extract cache purge module source
+  command: tar zxvf cache-purge-{{ cache_purge_ver }}.tar.gz chdir=/tmp
+
+- name: rename cache purge module directory
+  command: mv ngx_cache_purge-{{ cache_purge_ver }} cache-purge chdir=/tmp
 
 - name: copy build script
   copy: src=build-nginx.sh dest=/tmp/nginx/build-nginx.sh mode=0755

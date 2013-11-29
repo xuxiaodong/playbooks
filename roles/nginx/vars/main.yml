@@ -1,4 +1,5 @@
 ---
 ngx_ver: 1.4.3
 lua_ngx_ver: 0.9.1
+cache_purge_ver: 2.1
 ngx_conf_path: /usr/local/webserver/nginx/conf

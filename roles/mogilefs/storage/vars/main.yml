@@ -1,7 +1,8 @@
 ---
 trackers: 192.168.56.102
 conf_path: /etc/mogilefs
-dev_path: /var/mogdata/dev1
-storage_name: mogilestorage
-domain_name: testdomain
-class_name: testclass
+dev_path: /var/mogdata/dev3
+storage_name: mogilestorage3
+dev_id: 3
+domain_name: testdomain3
+class_name: testclass3
